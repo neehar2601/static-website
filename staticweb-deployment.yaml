@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: staticweb
+  labels:
+    app: staticweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: staticweb
+  template:
+    metadata:
+      labels:
+        app: staticweb
+    spec:
+      containers:
+      - name: cafestatic
+        image: neehar2601/staticweb:latest
+        ports:
+        - containerPort: 80
